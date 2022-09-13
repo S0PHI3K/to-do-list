@@ -1,14 +1,17 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 
 export default function Task (props) {
     return(
         <View style = {styles.item}>
             <View style={styles.itemLeft}>
-                <View style={styles.square}></View>
+                <View style={styles.circular}></View>
                 <Text style={styles.itemText}>{props.text}</Text>
             </View>
-            <View style={styles.circular}></View>
+            <View style={styles.itemRight}>
+                <Image style={{height: 35, width: 35}}
+                 source={require('../assets/tickIcon.png')} />
+            </View>
 
         </View>
     )
@@ -16,13 +19,13 @@ export default function Task (props) {
 
 const styles = StyleSheet.create({
     item:{
-        backgroundColor: '#ffffff',
+        backgroundColor: '#f5f5f5',
         padding: 15,
-        borderRadius: 10,
+        borderRadius: 20,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginBottom: 20,
+        margin: 10,
     },
     itemLeft:{
         flexDirection: 'row',
@@ -38,13 +41,16 @@ const styles = StyleSheet.create({
     itemText: {
         maxWidth: '80%',
         marginLeft: 10,
+        fontSize: 20,
+        
     },
     circular: {
-        width: 12,
-        height: 12,
-        borderColor:'#55BCf6',
+        width: 16,
+        height: 16,
+        borderColor:'#009051',
         borderWidth: 2,
-        borderRadius: 5, 
+        borderRadius: 15,
+        backgroundColor: '#009051',  
     }, 
 
 })
